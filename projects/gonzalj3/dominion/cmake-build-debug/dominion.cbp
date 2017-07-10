@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="dominion"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="dominion">
+				<Option output="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/dominion" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 dominion"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="dominion/fast">
+				<Option output="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/dominion" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 dominion/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/jmg/OSU/362\ Software\ Engineering\ 2/git/CS362-004-SP17/projects/gonzalj3/dominion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/badTestDrawCard.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/betterTestDrawCard.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/dominion.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/dominion.h">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/dominion_helpers.h">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/interface.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/interface.h">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/playdom.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/player.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/rngs.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/rngs.h">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/rt.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/supplyTest.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/testBuyCard.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/testDrawCard.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/testInit.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/testShuffle.c">
+			<Option target="dominion"/>
+		</Unit>
+		<Unit filename="/Users/jmg/OSU/362 Software Engineering 2/git/CS362-004-SP17/projects/gonzalj3/dominion/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

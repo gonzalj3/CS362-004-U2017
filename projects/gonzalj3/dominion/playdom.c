@@ -37,13 +37,6 @@ int main (int argc, char** argv) {
     adventurerPos = i;
     }
 
-      i =0;
-    printf("Start of turn.\n");
-    while(i<numHandCards(&G)){
-      printf("a%d\n",handCard(i, &G));
-      i++;
-    }
-
     if (whoseTurn(&G) == 0) {
       if (smithyPos != -1) {
         printf("0: smithy played from position %d\n", smithyPos);
@@ -85,12 +78,6 @@ int main (int argc, char** argv) {
         printf("0: bought silver\n");
         buyCard(silver, &G);
       }
-        printf("About to finish turn. \n \n");
-        i = 0;
-        while(i<numHandCards(&G)){
-            printf("b%d\n",handCard(i, &G));
-            i++;
-        }
 
       printf("0: end turn\n");
       endTurn(&G);
@@ -133,12 +120,6 @@ int main (int argc, char** argv) {
       else if (money >= 3){
         printf("1: bought silver\n");
 	    buyCard(silver, &G);
-      }
-        printf("About to finish turn. \n \n");
-        i = 0;
-      while(i<numHandCards(&G)){
-        printf("b%d\n",handCard(i, &G));
-        i++;
       }
       printf("1: endTurn\n");
 

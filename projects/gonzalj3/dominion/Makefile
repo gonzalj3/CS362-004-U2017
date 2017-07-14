@@ -8,9 +8,9 @@ dominion.o: dominion.h dominion.c rngs.o
 
 playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o $(CFLAGS)
-
+#To run playdom you need to entere: ./playdom <any integer number> like ./playdom 10*/
 testDrawCard: testDrawCard.c dominion.o rngs.o
-	gcc -o testDrawCard -g  testDrawCard.c dominion.o rngs.o $(CFLAGS)
+	gcc  -o testDrawCard -g  testDrawCard.c dominion.o rngs.o $(CFLAGS)
 
 badTestDrawCard: badTestDrawCard.c dominion.o rngs.o
 	gcc -o badTestDrawCard -g  badTestDrawCard.c dominion.o rngs.o $(CFLAGS)
@@ -36,4 +36,4 @@ player: player.c interface.o
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
-	rm -f *.o playdom.exe playdom test.exe test player player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe

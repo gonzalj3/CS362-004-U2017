@@ -1371,4 +1371,3 @@ int updateCoins(int player, struct gameState *state, int bonus)
 
 
 //end of dominion.c
-

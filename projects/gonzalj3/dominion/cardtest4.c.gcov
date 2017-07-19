@@ -1,0 +1,95 @@
+        -:    0:Source:cardtest4.c
+        -:    0:Graph:cardtest4.gcno
+        -:    0:Data:cardtest4.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2:	Jose Gonzalez Assignment 3 362 - cardtest4.c adventurer 
+        -:    3:*/
+        -:    4:#include "dominion.h"
+        -:    5:#include "dominion_helpers.h"
+        -:    6:#include <string.h>
+        -:    7:#include <stdio.h>
+        -:    8:#include <assert.h>
+        -:    9:#include <stdlib.h>
+        -:   10:#include "rngs.h"
+        -:   11:
+        -:   12:#define KARD "adventurer"
+        -:   13:
+        1:   14:void changeCheck(struct gameState *G, struct gameState *oldG)
+        -:   15:{
+        1:   16:	int newlyDiscarded =0, x =0, counter =0, counterNew = 0;
+        1:   17:	newlyDiscarded = oldG->deckCount[0] - G->deckCount[0];
+        6:   18:	for(; x<oldG->handCount[0];x++)
+        -:   19:	{
+        5:   20:		if(oldG->hand[0][x] ==copper)
+        -:   21:		{
+        3:   22:			counter++;
+        -:   23:		}
+        5:   24:		if(oldG->hand[0][x] ==silver)
+        -:   25:		{
+    #####:   26:			counter++;
+        -:   27:		}
+        5:   28:		if(oldG->hand[0][x] ==gold)
+        -:   29:		{
+    #####:   30:			counter++;
+        -:   31:		}
+        -:   32:		
+        -:   33:	}
+        -:   34:	
+        3:   35:	for(; x<G->handCount[0];x++)
+        -:   36:	{
+        2:   37:		if(G->hand[0][x] ==copper)
+        -:   38:		{
+        2:   39:			counterNew++;
+        -:   40:		}
+        2:   41:		if(G->hand[0][x] ==silver)
+        -:   42:		{
+    #####:   43:			counterNew++;
+        -:   44:		}
+        2:   45:		if(G->hand[0][x] ==gold)
+        -:   46:		{
+    #####:   47:			counterNew++;
+        -:   48:		}
+        -:   49:		
+        -:   50:	}
+        -:   51:	
+        -:   52:	
+        1:   53:	if(G->discardCount[0] != (newlyDiscarded+2))
+        -:   54:		{
+        1:   55:			printf("Error: Number of discarded cards does not equal what is expected.\n");
+        -:   56:		}
+    #####:   57:	else if(G->deckCount[0] != (newlyDiscarded + G->deckCount[0]))
+        -:   58:	{
+    #####:   59:			printf("Error: Deck count is not what is expected.\n");
+        -:   60:	}
+    #####:   61:	else if(counterNew != counter + 2)
+        -:   62:	{
+    #####:   63:			printf("Error: Did not find two extra treasure cards.\n");
+        -:   64:	}
+        -:   65:	else
+        -:   66:		{
+    #####:   67:			printf("Past Check Changes Test.\n");
+        -:   68:		}
+        -:   69:			//printf("Hand count should Be: %d and is %d.\n",G->handCount[0],testG->handCount[0]+3);
+        -:   70:			//printf("Number of Buys should Be: %d and is %d.\n",G->numBuys,testG->numBuys+1);
+        1:   71:}
+        -:   72:
+        1:   73:int main(){
+        -:   74:	struct gameState G, testG;
+        1:   75:	int numberOfPlayers = 2;
+        1:   76:	int kards[10]={adventurer, salvager, feast, gardens, mine
+        -:   77:               , remodel, smithy, village, baron, great_hall};
+        1:   78:	int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+        1:   79:	int seed = 9380;
+        -:   80:
+        1:   81:	printf("Testing adventurer.\n");
+        1:   82:	initializeGame(numberOfPlayers, kards, seed, &G);
+        1:   83:	memcpy(&testG, &G, sizeof(struct gameState));
+        -:   84:
+        1:   85:	cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
+        1:   86:	changeCheck(&G,&testG);
+        -:   87:
+        -:   88:
+        1:   89:	return 0 ;
+        -:   90:}

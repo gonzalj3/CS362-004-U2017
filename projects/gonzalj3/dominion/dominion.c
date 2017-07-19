@@ -14,9 +14,7 @@ void newSalvager(int currentPlayer, struct gameState * state, int handPos, int c
     {
         //Two bugs in the following line of code. The first is that the element coins in the struct gameState state
         //is not changed by adding the cost of a discarded card to coins but instead coins is redefined as the cost of that card.
-        //The second bug is that when calling getCost and handCard, one of the parameter's of handCard was passed by reference.
-        //gain coins equal to trashed card
-        state->coins =  getCost( handCard(choice1, &state) );
+        state->coins =  getCost( handCard(choice1, state) );
         //trash card
         discardCard(choice1, currentPlayer, state, 1);
     }
@@ -1371,3 +1369,4 @@ int updateCoins(int player, struct gameState *state, int bonus)
 
 
 //end of dominion.c
+

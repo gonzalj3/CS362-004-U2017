@@ -1,0 +1,56 @@
+        -:    0:Source:cardtest3.c
+        -:    0:Graph:cardtest3.gcno
+        -:    0:Data:cardtest3.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2:	Jose Gonzalez Assignment 3 362 - cardtest3.c smithy 
+        -:    3:*/
+        -:    4:#include "dominion.h"
+        -:    5:#include "dominion_helpers.h"
+        -:    6:#include <string.h>
+        -:    7:#include <stdio.h>
+        -:    8:#include <assert.h>
+        -:    9:#include <stdlib.h>
+        -:   10:#include "rngs.h"
+        -:   11:
+        -:   12:#define KARD "smithy"
+        -:   13:
+        1:   14:void changeCheck(struct gameState *G, struct gameState *testG)
+        -:   15:{
+        1:   16:	int exHandC = (testG->handCount[0]+2);
+        1:   17:	int exDeckC = (testG->deckCount[0]-3);
+        1:   18:	if(G->handCount[0] != exHandC)
+        -:   19:	{
+        1:   20:			printf("Error: Number of cards player's hand did not increase.\n");
+        -:   21:	}
+        1:   22:	if(G->deckCount[0] != exDeckC)
+        -:   23:	{
+        1:   24:			printf("Error: Number of cards in player's deck did not decrease by 3.\n");
+        -:   25:	}
+        -:   26:	else
+        -:   27:		{
+    #####:   28:			printf("Past Check Changes Test.\n");
+        -:   29:		}
+        1:   30:			printf("Hand count should Be: %d and is %d.\n",G->handCount[0],exHandC);
+        1:   31:			printf("Deck count should Be: %d and is %d.\n",G->deckCount[0],exDeckC);
+        1:   32:}
+        -:   33:
+        1:   34:int main(){
+        -:   35:	struct gameState G, testG;
+        1:   36:	int numberOfPlayers = 2;
+        1:   37:	int kards[10]={adventurer, salvager, feast, gardens, mine
+        -:   38:               , remodel, smithy, village, baron, great_hall};
+        1:   39:	int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0, x=0;
+        1:   40:	int seed = 9380;
+        -:   41:
+        1:   42:	printf("Testing smithy.\n");
+        1:   43:	initializeGame(numberOfPlayers, kards, seed, &G);
+        1:   44:	memcpy(&testG, &G, sizeof(struct gameState));
+        1:   45:	cardEffect(smithy, choice1, choice2, choice3, &G, handpos, &bonus);
+        1:   46:	printf("The size of the deck before smithy is %d and after it is %d.\n",testG.deckCount[0],G.deckCount[0]);
+        1:   47:	changeCheck(&G, &testG);
+        -:   48:
+        -:   49:
+        1:   50:	return 0 ;
+        -:   51:}

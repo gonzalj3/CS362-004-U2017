@@ -1,0 +1,98 @@
+        -:    0:Source:unittest4.c
+        -:    0:Graph:unittest4.gcno
+        -:    0:Data:unittest4.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2:	Jose Gonzalez Assignment 3 362 - unittest4.c isGameOver
+        -:    3:*/
+        -:    4:#include "dominion.h"
+        -:    5:#include "dominion_helpers.h"
+        -:    6:#include <string.h>
+        -:    7:#include <stdio.h>
+        -:    8:#include <assert.h>
+        -:    9:#include <stdlib.h>
+        -:   10:#include "rngs.h"
+        -:   11:
+        5:   12:void changeCheck(struct gameState *G, int testNumber, int kards[10])
+        -:   13:{
+        5:   14:	int x = 0;
+        5:   15:	int depletion = 0;
+        5:   16:	if(isGameOver(G)!=1&&testNumber==0)
+        -:   17:		{
+    #####:   18:			printf("Error: Does not recognize game is over when province pile is 0.\n");
+        -:   19:		}
+        5:   20:	else if(isGameOver(G)!=0&&testNumber==1)
+        -:   21:		{
+    #####:   22:			printf("Error: isGameOver states game is over when game is not over since no rule for game over is true.\n");
+        -:   23:		}
+        5:   24:	else if(isGameOver(G)!=0&&testNumber==2)
+        -:   25:		{
+    #####:   26:			printf("Error: isGameOver states game is over when game is not over since no rule for game over is true.\n");
+        -:   27:		}
+        5:   28:	else if(isGameOver(G)!=1&&testNumber==3)
+        -:   29:		{
+    #####:   30:			printf("Error: Does not recognize game is over when three card piles are completely depleted.\n");
+        -:   31:		}
+        5:   32:	else if(isGameOver(G)==1&&testNumber==3)
+        -:   33:		{
+        1:   34:			printf("\nThe function isGameOver recognizes when three card piles are empty.\n");
+        -:   35:		}
+        4:   36:	else if(isGameOver(G)!=0&&testNumber==4)
+        -:   37:		{
+    #####:   38:			printf("Error: isGameOver states game is over when game is NOT over since no rule for game over is true.\n");
+        -:   39:		}					
+        -:   40:	else
+        -:   41:		{
+        4:   42:			printf("Past Test.\n");
+        -:   43:		}
+        5:   44:	printf("Province pile has %d cards.\n", G->supplyCount[province]);
+       55:   45:	for(; x<10;x++)
+        -:   46:	{
+       50:   47:		if(G->supplyCount[kards[x]]==0)
+        -:   48:		{
+        6:   49:			depletion++;
+        -:   50:		}	
+        -:   51:	}
+        5:   52:	printf("The number of depleted card piles is %d. \n",depletion);	
+        -:   53:
+        5:   54:}
+        -:   55:
+        1:   56:int main(){
+        -:   57:	struct gameState G;
+        1:   58:	int numberOfPlayers = 2;
+        1:   59:	int kards[10]={salvager, council_room, feast, gardens, mine, remodel, smithy, village, baron, great_hall};
+        1:   60:	int seed = 637;
+        1:   61:	int testNumber=0;
+        -:   62:
+        -:   63:/* Testing isGameOver when province pile is 0.*/
+        1:   64:	printf("Testing isGameOver when province pile is empty.\n");
+        1:   65:	initializeGame(numberOfPlayers, kards, seed, &G);
+        1:   66:	G.supplyCount[province]=0;
+        1:   67:	changeCheck(&G, testNumber, kards);
+        -:   68:	
+        -:   69:/* Testing isGameOver when three card stacks are completely depleted.*/
+        1:   70:	printf("Testing isGameOver when  one to all of the following are card piles are empty: feast, gardens and baron.\n");
+        1:   71:	initializeGame(numberOfPlayers, kards, seed, &G);
+        -:   72:	
+        -:   73:	/* Testing isGameOver when no card pile is empty */
+        1:   74:	testNumber = 4;
+        1:   75:	changeCheck(&G, testNumber, kards);
+        -:   76:	
+        -:   77:	/* Testing isGameOver when one card pile is empty */
+        1:   78:	G.supplyCount[feast]=0;
+        1:   79:	testNumber = 1;
+        1:   80:	changeCheck(&G, testNumber, kards);
+        -:   81:	
+        -:   82:	/* Testing isGameOver when two card piles is empty */
+        1:   83:	G.supplyCount[gardens]=0;
+        1:   84:	testNumber = 2;
+        1:   85:	changeCheck(&G, testNumber, kards);	
+        -:   86:	
+        -:   87:	/* Testing isGameOver when three card piles is empty */	
+        1:   88:	G.supplyCount[baron]=0;
+        1:   89:	testNumber = 3;
+        1:   90:	changeCheck(&G, testNumber, kards);
+        -:   91:
+        1:   92:	return 0;
+        -:   93:}

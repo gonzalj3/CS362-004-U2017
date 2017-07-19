@@ -1,0 +1,127 @@
+        -:    0:Source:unittest2.c
+        -:    0:Graph:unittest2.gcno
+        -:    0:Data:unittest2.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2:	Jose Gonzalez Assignment 3 362 - unittest2.c endTurn
+        -:    3:*/
+        -:    4:#include "dominion.h"
+        -:    5:#include "dominion_helpers.h"
+        -:    6:#include <string.h>
+        -:    7:#include <stdio.h>
+        -:    8:#include <assert.h>
+        -:    9:#include <stdlib.h>
+        -:   10:#include "rngs.h"
+        -:   11:
+        2:   12:void changeCheck(int player, int playerFormer, struct gameState *G, struct gameState *oldG)
+        -:   13:{
+        2:   14:	int handStaySame = 0;
+        2:   15:	int x =0;
+       12:   16:	for(;x<oldG->handCount[playerFormer];x++)
+        -:   17:	{
+       10:   18:		if(oldG->hand[playerFormer][x] == G->hand[playerFormer][x])
+        -:   19:		{
+    #####:   20:			handStaySame++;
+        -:   21:		}			
+        -:   22:	}
+        2:   23:	x=0;
+        -:   24:
+        2:   25:	if(G->whoseTurn == playerFormer)
+        -:   26:		{
+    #####:   27:			printf("Error: Player has not changed. \n");
+        -:   28:		}
+        2:   29:	else if(G->coins == oldG->coins)
+        -:   30:		{
+    #####:   31:			printf("Error: Number of coins is not different.\n");
+        -:   32:		}
+        2:   33:	else if(G->discardCount[playerFormer] <= oldG->discardCount[playerFormer])
+        -:   34:		{
+    #####:   35:			printf("Error: Number of discarded cards for the former player %d, has not increased.\n",G->discardCount[player]);
+        -:   36:		}
+        2:   37:	else if(G->numActions != 1)
+        -:   38:		{
+    #####:   39:			printf("Error: The number of buys is not the standard 1 at the beginning of a turn and is %d.\n",G->numActions);
+        -:   40:		}
+        2:   41:	else if(G->numBuys != 1)
+        -:   42:		{
+    #####:   43:			printf("Error: The number of buys is not the standard 1 at the beginning of a turn and is %d.\n",G->numBuys);
+        -:   44:		}
+        2:   45:	else if(oldG->hand[playerFormer][0]==G->hand[playerFormer][0])
+        -:   46:		{
+    #####:   47:			printf("Error: The former player's first card in their hand still exists.\n");
+        -:   48:		}
+        2:   49:	else if(oldG->handCount[playerFormer] <= G->handCount[playerFormer])
+        -:   50:		{
+    #####:   51:			printf("Error: The hand count for the former player has not decreased.\n");
+        -:   52:		}
+        2:   53:	else if(handStaySame >0)
+        -:   54:		{
+    #####:   55:			printf("Error: The hand for the former player has not changed for %d cards\n",handStaySame);
+        -:   56:		}
+        -:   57:else
+        -:   58:		{
+        2:   59:			printf("Past Check Changes Test.\n");
+        -:   60:		}
+        -:   61:
+        2:   62:			printf("Whose turn it is %d and was %d.\n",G->whoseTurn,oldG->whoseTurn);
+        2:   63:			printf("Number of coins changed from preset %d for the former player to %d for the new player.\n",oldG->coins, G->coins);
+        2:   64:			printf("Number of buys changed from preset %d for the former player to %d for the new player.\n",oldG->numBuys, G->numBuys); 
+        2:   65:			printf("Number of actions changed from preset %d for the former player to %d for the new player.\n",oldG->numActions, G->numActions); 
+        2:   66:					printf("Former players handcount went from %d to %d.\n", oldG->handCount[playerFormer], G->handCount[playerFormer]); 
+        2:   67:			printf("Current players handcount went from %d to %d.\n", oldG->handCount[player], G->handCount[player]); 
+        2:   68:			printf("Number of discarded cards for previous player was %d and now is %d.\n",oldG->discardCount[playerFormer],G->discardCount[playerFormer]);
+       12:   69:			for(;x<oldG->handCount[playerFormer];x++)
+        -:   70:			{
+       10:   71:			printf("The Former player's hand included card %d and is now %d.\n",oldG->hand[playerFormer][x],G->hand[playerFormer][x]);
+        -:   72:			}
+        2:   73:}
+        -:   74:
+        -:   75:
+        1:   76:int main(){
+        -:   77:	struct gameState G, oldG;
+        1:   78:	int numberOfPlayers = 2;
+        -:   79:	int currentPlayer, previousPlayer;
+        1:   80:	int kards[10]={ salvager,council_room, feast, gardens, mine
+        -:   81:               , remodel, smithy, village, baron, great_hall};
+        1:   82:	int seed = 45;
+        1:   83:	int x=0;
+        -:   84:
+        -:   85:/* Testing endTurn when user is first player.*/
+        1:   86:	printf("Testing endTurn after initilizaing game and first player turn ends.\n");
+        1:   87:	initializeGame(numberOfPlayers, kards, seed, &G);
+        1:   88:	G.coins=100;
+        1:   89:	G.numBuys=199;
+        1:   90:	G.numActions=200;
+        6:   91:	for(;x<G.handCount[0];x++)
+        -:   92:	{
+        5:   93:		G.hand[0][x]=kards[x];
+        5:   94:		printf("hands will be %d\n",G.hand[0][x]);
+        -:   95:	}
+        1:   96:	memcpy(&oldG, &G, sizeof(struct gameState));
+        1:   97:	previousPlayer = G.whoseTurn;
+        1:   98:	endTurn(&G);
+        1:   99:	currentPlayer = G.whoseTurn;
+        1:  100:	changeCheck(currentPlayer, previousPlayer, &G,&oldG);
+        -:  101:
+        -:  102:/* Testing endTurn when user is last player.*/
+        1:  103:	x=0;
+        1:  104:	printf("Testing endTurn after initilizaing game and last player turn ends.\n");
+        1:  105:	initializeGame(numberOfPlayers, kards, seed, &G);
+        1:  106:	endTurn(&G);	
+        1:  107:	G.coins=100;
+        1:  108:	G.numBuys=199;
+        1:  109:	G.numActions=200;
+        6:  110:	for(;x<G.handCount[1];x++)
+        -:  111:	{
+        5:  112:		G.hand[1][x]=kards[x];
+        5:  113:		printf("hands will be %d\n",G.hand[1][x]);
+        -:  114:	}
+        1:  115:	memcpy(&oldG, &G, sizeof(struct gameState));
+        1:  116:	previousPlayer = G.whoseTurn;
+        1:  117:	endTurn(&G);
+        1:  118:	currentPlayer = G.whoseTurn;
+        1:  119:	changeCheck(currentPlayer, previousPlayer, &G,&oldG);
+        -:  120:
+        1:  121:	return 0;
+        -:  122:}

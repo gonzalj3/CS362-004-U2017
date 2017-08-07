@@ -1,0 +1,129 @@
+        -:    0:Source:cardtest4.c
+        -:    0:Graph:cardtest4.gcno
+        -:    0:Data:cardtest4.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2:	Jose Gonzalez Assignment 3 362 - cardtest4.c adventurer 
+        -:    3:*/
+        -:    4:#include "dominion.h"
+        -:    5:#include "dominion_helpers.h"
+        -:    6:#include <string.h>
+        -:    7:#include <stdio.h>
+        -:    8:#include <assert.h>
+        -:    9:#include <stdlib.h>
+        -:   10:#include "rngs.h"
+        -:   11:
+        -:   12:#define KARD "adventurer"
+        -:   13:
+        1:   14:void changeCheck(struct gameState *G, struct gameState *oldG)
+        -:   15:{
+        1:   16:	int newlyDiscarded =0, x =0, counter =0, counterNew = 0, gold = 0, silver =0;
+        1:   17:	newlyDiscarded = oldG->deckCount[0] - G->deckCount[0];
+        7:   18:	for(x = 0 ; x<=oldG->handCount[0];x++)
+        -:   19:	{
+        6:   20:		if(oldG->hand[0][x] ==copper)
+        -:   21:		{
+    #####:   22:			counter++;
+        -:   23:		}
+        6:   24:		if(oldG->hand[0][x] ==silver)
+        -:   25:		{
+        1:   26:			counter++;
+        -:   27:		//	silver++;
+        -:   28:		}
+        6:   29:		if(oldG->hand[0][x] ==gold)
+        -:   30:		{
+        1:   31:			counter++;
+        -:   32:		//	gold++;
+        -:   33:		}
+        -:   34:		
+        -:   35:	}
+        -:   36:	
+        9:   37:	for(x = 0; x<=G->handCount[0];x++)
+        -:   38:	{
+        8:   39:		if(G->hand[0][x] == copper)
+        -:   40:		{
+    #####:   41:			counterNew++;
+    #####:   42:			printf("found opper, %d\n",x);
+        -:   43:
+        -:   44:		}
+        8:   45:		if(G->hand[0][x] == silver)
+        -:   46:		{
+        1:   47:			counterNew++;
+        1:   48:			silver++;
+        1:   49:			printf("found isilver , %d\n",x);
+        -:   50:
+        -:   51:		}
+        8:   52:		if(G->hand[0][x] == gold)
+        -:   53:		{
+        1:   54:			counterNew++;
+        1:   55:			gold++;
+        1:   56:			printf("found gold , %d\n",x);
+        -:   57:		}
+        -:   58:		
+        -:   59:	}
+        -:   60:	
+        -:   61:	
+        1:   62:	if(G->discardCount[0] != (newlyDiscarded+2))
+        -:   63:		{
+        1:   64:			printf("Error: Number of discarded cards does not equal what is expected.\n");
+        -:   65:		}
+    #####:   66:	else if(G->deckCount[0] != (newlyDiscarded + G->deckCount[0]))
+        -:   67:	{
+    #####:   68:			printf("Error: Deck count is not what is expected.\n");
+        -:   69:	}
+        -:   70:	else
+        -:   71:	{
+    #####:   72:			printf("Past Check Changes Test.\n");
+        -:   73:	}
+        -:   74:			//printf("Hand count should Be: %d and is %d.\n",G->handCount[0],testG->handCount[0]+3);
+        -:   75:			//printf("Number of Buys should Be: %d and is %d.\n",G->numBuys,testG->numBuys+1);
+        1:   76:	if(gold != 1 || silver != 1)
+        -:   77:	{
+    #####:   78:		printf("we have %d gold and %d silver when we should have 1 each.\n", gold, silver);
+        -:   79:	}
+        1:   80:	if(counterNew != counter + 2)
+        -:   81:	{
+        1:   82:			printf("Error: Did not find two extra treasure cards.\n");
+        -:   83:	}
+        -:   84:
+        1:   85:}
+        -:   86:
+        1:   87:int main(){
+        -:   88:	struct gameState G, testG;
+        1:   89:	int numberOfPlayers = 2;
+        1:   90:	int kards[10]={adventurer, salvager, feast, gardens, mine
+        -:   91:               , remodel, smithy, village, baron, great_hall};
+        1:   92:	int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0, x = 0;
+        1:   93:	int seed = 9380;
+        -:   94:
+        1:   95:	printf("Testing adventurer.\n");
+        1:   96:	initializeGame(numberOfPlayers, kards, seed, &G);
+        1:   97:	G.deck[0][(G.deckCount[0]-1)] = gold;
+        1:   98:	printf("%d\n",G.deckCount[0]);
+        1:   99:	G.deck[0][(G.deckCount[0]-2)] = silver;
+        1:  100:	printf("%d\n",G.deckCount[0]);
+        7:  101:	for(x = 0; x<=G.handCount[0];x++)
+        -:  102:	{
+        6:  103:		if(G.hand[0][x] ==copper)
+        -:  104:		{
+        3:  105:			G.hand[0][x] = baron;
+        -:  106:		}
+        6:  107:		if(G.hand[0][x] ==silver)
+        -:  108:		{
+    #####:  109:			G.hand[0][x] = baron;
+        -:  110:		}
+        6:  111:		if(G.hand[0][x] ==gold)
+        -:  112:		{
+    #####:  113:			G.hand[0][x] = baron;
+    #####:  114:			printf("%d\n", x);
+        -:  115:		}
+        -:  116:	}
+        1:  117:	memcpy(&testG, &G, sizeof(struct gameState));
+        -:  118:
+        1:  119:	cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
+        1:  120:	changeCheck(&G,&testG);
+        -:  121:
+        -:  122:
+        1:  123:	return 0 ;
+        -:  124:}

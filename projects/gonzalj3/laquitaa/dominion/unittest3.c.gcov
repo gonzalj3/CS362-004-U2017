@@ -1,0 +1,50 @@
+        -:    0:Source:unittest3.c
+        -:    0:Graph:unittest3.gcno
+        -:    0:Data:unittest3.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2:	Jose Gonzalez Assignment 3 362 - unittest3.c whoseTurn
+        -:    3:*/
+        -:    4:#include "dominion.h"
+        -:    5:#include "dominion_helpers.h"
+        -:    6:#include <string.h>
+        -:    7:#include <stdio.h>
+        -:    8:#include <assert.h>
+        -:    9:#include <stdlib.h>
+        -:   10:#include "rngs.h"
+        -:   11:
+        4:   12:void changeCheck(int expectedValue, struct gameState *G)
+        -:   13:{
+        4:   14:	if(expectedValue != whoseTurn(G))
+        -:   15:		{
+    #####:   16:			printf("Error: Number of whoseTurn does not return value that matches expected value.\n");
+        -:   17:		}
+        -:   18:	else
+        -:   19:		{
+        4:   20:			printf("Past Check Changes Test when player is %d.\n", G->whoseTurn);
+        -:   21:		}
+        4:   22:			printf("Current player should be: %d and is %d.\n",expectedValue,whoseTurn(G));
+        4:   23:}
+        -:   24:
+        1:   25:int main(){
+        -:   26:	struct gameState G;
+        1:   27:	int numberOfPlayers = 4;
+        1:   28:	int kards[10]={adventurer, council_room, feast, gardens, mine
+        -:   29:               , remodel, smithy, village, baron, great_hall};
+        1:   30:	int seed = 234;
+        1:   31:	int x = 0;
+        -:   32:	
+        -:   33:/* Testing whoseTurn when not enough coins exists for user attempting buy.*/
+        1:   34:	printf("Testing whoseTurn by changing gamestate manually and comparing expected and actual data.\n");
+        1:   35:	initializeGame(numberOfPlayers, kards, seed, &G);
+        -:   36:	//G.coins = 0;
+        -:   37:	//memcpy(&testG, &G, sizeof(struct gameState));
+        5:   38:	for(;x<numberOfPlayers;x++)
+        -:   39:	{
+        4:   40:		G.whoseTurn = x;
+        4:   41:		changeCheck(x,&G);
+        -:   42:	}
+        -:   43:	
+        1:   44:	return 0;
+        -:   45:}

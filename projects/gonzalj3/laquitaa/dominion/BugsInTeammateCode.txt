@@ -1,0 +1,13 @@
+ I found two bugs. The first bug was in the smithy function. The bug was that a 
+ conditional statement existed that determine the number of time a card is drawn.
+ The smithy card asks for the player that plays it to draw three more cards. 
+ The conditional statement incorrectly stated that the for loop it was part of
+ would execute the draw function if the counter was less than or equal to 3, when 
+ the counter started at 0. This would result in the for loop executing the draw 
+ card four times instead of it executing three times. The second bug pertained to 
+ the adventurer's card's action. The card is meant to draw cards from the player's 
+ deck until two treasure cards are found. The bug in the re-factor code was that 
+ the conditional statement that determine whether the card that was drawn was a 
+ treasure card did not include gold as a treasure card. As a result, the 
+ adventurer card would cause the player to discard treasure cards that should 
+ have been drawn.
